@@ -1,0 +1,355 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>Alternate Menu - Multipurpose Bootstrap Dashboard Template </title>
+    <link rel="icon" type="image/x-icon" href="{% static 'dashboard/assets/img/favicon.ico' %}"/>
+    <link href="{% static 'dashboard/assets/css/loader.css" rel="stylesheet" type="text/css' %}"/>
+    <script src="{% static 'dashboard/assets/js/loader.js' %}"></script>
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="{% static 'dashboard/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'dashboard/assets/css/plugins.css' %}" rel="stylesheet" type="text/css"/>
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+
+</head>
+<body class="alt-menu">
+<!-- BEGIN LOADER -->
+<div id="load_screen">
+    <div class="loader">
+        <div class="loader-content">
+            <div class="spinner-grow align-self-center"></div>
+        </div>
+    </div>
+</div>
+<!--  END LOADER -->
+
+<!--  BEGIN NAVBAR  -->
+<div class="header-container fixed-top">
+    <header class="header navbar navbar-expand-sm">
+
+        <ul class="navbar-item theme-brand flex-row  text-center">
+            <li class="nav-item theme-logo">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'dashboard/assets/img/90x90.jpg' %}" class="navbar-logo" alt="logo">
+                </a>
+            </li>
+            <li class="nav-item theme-text">
+                <a href="{% url 'index' %}" class="nav-link"> Company Name </a>
+            </li>
+        </ul>
+
+        <ul class="navbar-item flex-row ml-md-auto">
+            <li class="nav-item dropdown user-profile-dropdown">
+                <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <img src="{{ request.user.image.url }}" height="90px" width="90px" alt="avatar">
+                </a>
+                <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
+                    <div class="">
+                        <div class="dropdown-item">
+                            <a class="" href="{% url 'profile' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-user">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                My Profile</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a class="" href="{% url 'logout' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-log-out">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                    <polyline points="16 17 21 12 16 7"></polyline>
+                                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                                </svg>
+                                Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </header>
+</div>
+<!--  END NAVBAR  -->
+
+
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container sidebar-closed sbar-open" id="container">
+
+    <div class="overlay"></div>
+    <!--  BEGIN CONTENT PART  -->
+    <div id="content" class="main-content">
+        <div class="layout-px-spacing">
+
+            <div class="row mt-n4 ">
+
+                <div class="col-xl-4 col-lg-6 col-md-6 mb-4 layout-px-spacing">
+                    <div class="card b-l-card-1 h-auto"
+                         style="-webkit-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2); -moz-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2); box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2); ">
+                        <div class="ml-3 mr-3 mt-3 user" align="center">
+                            <img src="{{ request.user.image.url }}" height="200" width="200"
+                                 class="rounded-circle border" alt="Card image cap">
+                            <h5 class="card-title mt-2 ">{{ account_form.name.value }}</h5>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-borderless">
+                                <tbody>
+                                <tr>
+                                    <td class="">Date of Birth</td>
+                                    <td>{{ account_form.dob.value }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="">Username</td>
+                                    <td>{{ account_form.username.value }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="">Email</td>
+                                    <td>{{ account_form.email.value }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="">Phone No</td>
+                                    <td>{{ account_form.phone_number.value }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="">Address</td>
+                                    <td>{{ account_form.address.value }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="">Bio</td>
+                                    <td>{{ account_form.bio.value }}</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        {{ account_form.image.lable }}
+                        <div class="form mb-3 align-bottom " align="center">
+                            <a href="{% url 'password_change' %}" class="btn btn-primary mb-4">Change Password</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-16 h-auto" style="margin-bottom:24px;">
+                    <div class=" widget ">
+                        <div class="widget-header">
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                    <h4>Update Profile</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-content widget-content-area h-auto">
+
+
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {% if account_form.non_field_errors %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ account_form.non_field_errors.as_text }}
+                                    </div>
+                                {% endif %}
+                                {% if success_message %}
+                                    <div class="alert alert-success" role="alert">
+                                        {{ success_message }}
+                                    </div>
+                                {% endif %}
+
+                                <div class="form-row mb-2">
+                                    <div class="form-group col-md-6">
+                                        <label for="for_name">Name</label>
+                                        <input type="text" name="name" maxlength="50" required id="id_name"
+                                               class="form-control" value="{{ account_form.name.value }}">
+
+                                        {% if account_form.name.help_text %}
+                                            <small>{{ account_form.name.help_text }}</small>
+                                        {% endif %}
+                                        {% if account_form.name.errors %}
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ account_form.name.errors.as_text }}
+                                            </div>
+                                        {% endif %}
+
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="for_dob">Date of Birth</label>
+                                        <input id="id_dob" name="dob" type="date" class="form-control"
+                                               value="{{ account_form.dob.value|date:'Y-m-d' }}"> # TODO: change image
+                                        donot show value front end
+
+                                        {% if account_form.dob.help_text %}
+                                            <small>{{ account_form.dob.help_text }}</small>
+                                        {% endif %}
+                                        {% if account_form.dob.errors %}
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ account_form.dob.errors.as_text }}
+                                            </div>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+
+                                <div class="form-row mb-2">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail4">Email</label>
+                                        <input id="email" name="email" type="text" class="form-control"
+                                               value="{{ account_form.email.value }}">
+
+
+                                        {% if account_form.email.help_text %}
+                                            <small>{{ account_form.email.help_text }}</small>
+                                        {% endif %}
+                                        {% if account_form.email.errors %}
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ account_form.email.errors.as_text }}
+                                            </div>
+                                        {% endif %}
+
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="for_username">Username</label>
+                                        <input id="username" name="username" type="text" class="form-control"
+                                               value="{{ account_form.username.value }}">
+
+                                        {% if account_form.username.help_text %}
+                                            <small>{{ account_form.username.help_text }}</small>
+                                        {% endif %}
+                                        {% if account_form.username.errors %}
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ account_form.username.errors.as_text }}
+                                            </div>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-row mb-2">
+                                    <div class="form-group col-md-6">
+                                        <label for="id_image">Address</label>
+                                        <textarea id="id_address" name="address" rows="3" cols="50" class="form-control"
+                                                  maxlength="1024">{{ account_form.address.value }}</textarea>
+
+                                        {% if account_form.address.help_text %}
+                                            <small>{{ account_form.address.help_text }}</small>
+                                        {% endif %}
+                                        {% if account_form.address.errors %}
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ account_form.address.errors.as_text }}
+                                            </div>
+                                        {% endif %}
+
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="for_phone_number">Phone No</label>
+                                        <input type="tel" name="phone_number" maxlength="128" id="id_phone_number"
+                                               class="form-control"
+                                               value="{{ account_form.phone_number.value }}">
+
+                                        {% if account_form.phone_number.help_text %}
+                                            <small>{{ account_form.phone_number.help_text }}</small>
+                                        {% endif %}
+                                        {% if account_form.phone_number.errors %}
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ account_form.phone_number.errors.as_text }}
+                                            </div>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-2">
+                                    <label for="id_image">Bio</label>
+                                    <textarea id="id_bio" name="bio" rows="3" cols="50" class="form-control"
+                                              maxlength="1000">{{ account_form.bio.value }}</textarea>
+
+                                    {% if account_form.bio.help_text %}
+                                        <small>{{ account_form.bio.help_text }}</small>
+                                    {% endif %}
+                                    {% if account_form.bio.errors %}
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ account_form.bio.errors.as_text }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label for="id_image">Change Photo</label>
+                                    <input type="file" name="image" accept="image/*" class="form-control-file"
+                                           id="id_image">
+
+                                    {% if account_form.image.help_text %}
+                                        <small>{{ account_form.image.help_text }}</small>
+                                    {% endif %}
+                                    {% if account_form.image.errors %}
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ account_form.image.errors.as_text }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+
+                                <!--{{ account_form.image}}-->
+                                <!--
+                                <div class="form-row mb-4">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity">City</label>
+                                        <input type="text" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputState">State</label>
+                                        <select id="inputState" class="form-control">
+                                            <option selected="">Choose...</option>
+                                            <option>...</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputZip">Zip</label>
+                                        <input type="text" class="form-control" id="inputZip">
+                                    </div>
+                                  </div>
+                                    -->
+
+                                <button type="submit" class="btn btn-primary mt-3">Update</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--  END CONTENT PART  -->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- END MAIN CONTAINER -->
+
+<!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+<script src="{% static 'dashboard/assets/js/libs/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'dashboard/bootstrap/js/popper.min.js' %}"></script>
+<script src="{% static 'dashboard/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'dashboard/plugins/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/app.js' %}"></script>
+<script>
+    $(document).ready(function () {
+        App.init();
+    });
+</script>
+<script src="{% static 'dashboard/assets/js/custom.js' %}"></script>
+<!-- END GLOBAL MANDATORY SCRIPTS -->
+
+<!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+<!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+
+</body>
+</html>
