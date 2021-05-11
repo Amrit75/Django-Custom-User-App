@@ -35,7 +35,7 @@ git clone https://github.com/Amrit75/Django-Custom-User-App.git
 ``` 
 2. Install all packages required to use this project.  
 ```
-pip install -r requirements.txt
+pip install -r requirement.txt
 ```
 3. Make all changes like models, views and etc.
 4. Than make migrations in project and migrate them to database
@@ -46,7 +46,7 @@ python manage.py migrate
 5. Create other apps as your requirement.
 6. Run project to test.
 ```
-python manage.py 
+python manage.py runserver
 ```
 
 ## About project 
