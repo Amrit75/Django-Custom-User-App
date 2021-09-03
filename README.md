@@ -26,7 +26,62 @@ This project is basic template of django User which uses AbstractBaseUser. It is
 - db.splite3 is sqlite database file use for databses data storage.
 - requirement.txt it contains list of all packages used in this project.
 
-
+### Project Strucher
+```
+Core
+│   manage.py
+│   db.sqlite3
+│   requirement.txt
+│
+├───Core
+│       asgi.py
+│       settings.py
+│       urls.py
+│       wsgi.py
+│       __init__.py
+│   
+├───templates
+│   │   PrivacyPolicy.html
+│   │   indexbase.html
+│   │
+│   └───registration
+│           password_change.html
+│           password_reset_done.html
+│           password_reset_form.html
+│           password_change_done.html
+│           password_reset_email.html
+│           password_reset_complete.html
+│           password_reset_confermation.html
+│           password_reset_subject.txt
+│
+├───static // Template Data and Other static files
+│
+├───accounts
+│   │   admin.py
+│   │   apps.py
+│   │   models.py
+│   │   tests.py
+│   │   views.py
+│   │   __init__.py
+│   │   urls.py
+│   │   forms.py
+│   │
+│   ├───migrations
+│   │       __init__.py
+│   │       0001_initial.py
+│   │   
+│   └───templates
+│       └───accounts
+│               register.html
+│               accountsBasic.html
+│               login.html
+│               profile.html
+│
+└───media
+    │   default.jpg
+    │
+    └───profile_pics
+``` 
 ## Steps to use it project
 
 1. Download this [project file](https://github.com/Amrit75/Django-Custom-User-App/archive/refs/heads/master.zip) or clone it. 
